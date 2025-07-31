@@ -90,7 +90,7 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 │   ├── tcp_design.md
 │   ├── technical_design.md
 │   └── user_personality_design.md
-├── eineUtils // ai框架eine实现的mcp工具
+├── einoUtils // ai框架eino实现的mcp工具
 │   ├── duckSeach
 │   │   └── duck.go
 │   └── httpSearch

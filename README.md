@@ -90,7 +90,7 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 │   ├── tcp_design.md
 │   ├── technical_design.md
 │   └── user_personality_design.md
-├── einoUtils // ai框架eino实现的mcp工具
+├── eineUtils // ai框架eine实现的mcp工具
 │   ├── duckSeach
 │   │   └── duck.go
 │   └── httpSearch
@@ -181,6 +181,12 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 │   │   ├── init.go 
 │   │   └── response.go 
 │   ├── str.go // 字符串处理
+│   ├── screenshot // 图片质量分析
+│   │   ├── quality // 图片质量分析
+│   │   │   └── analyzer.go // 质量评估器
+│   │   │   └── metrics.go // 拉普拉斯卷积等质量分析算法
+│   │   ├── screenshot.go // 截图压缩函数
+│   │   ├── service.go // 截图压缩管理器
 │   ├── upload // 文件上传
 │   │   ├── local.go // 本地上传
 │   │   ├── minio_oss.go //minio上传
@@ -223,6 +229,55 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 └── webHandler // web控制器
     └── webHander.go
 ```
+## 项目计划以及完成度
+* __总体目标__：打造具备“主动对话 + 情境感知 + 个性化权重 + 设备与健康数据融合”的AI助手，支持长连接实时交互与可扩展插件生态。
+
+### 路线图（Roadmap）
+* __阶段1·基础架构__（已完成 100%）
+  - TCP长连接、认证、心跳与连接管理器，安全编解码与协议栈（`internal/tcp`、`internal/protocol`、`initialize/tcpServer.go`）。
+  - 配置、日志、缓存、数据库与资源加载（`initialize/`、`pkg/logger`、`pkg/postgres`、`pkg/cache`）。
+* __阶段2·AI对话与权重系统__（进行中 ≈70%）
+  - 上下文管理与Token优化设计已完成文档与实现框架（`doc/context_management_design.md`，`internal/context`、`internal/prompt`）。
+  - 权重系统与触发机制设计完成（`doc/ai_weight_system_design.md`、`doc/ai_chat_design.md`），接入与调参中。
+* __阶段3·情境感知（桌面识别）__（进行中 ≈40%）
+  - 截图服务与压缩（`pkg/screenshot/screenshot.go`、`pkg/screenshot/service.go`）。
+  - 本地图片质量筛选：清晰度/对比度/均匀度/aHash去重等（`pkg/screenshot/quality/analyzer.go`、`metrics.go`，参见`doc/multi_screenshot_analysis_plan.md`第十一章）。
+  - 待将质量筛选接入服务回调并丢弃垃圾帧，接阿里云视觉分析。
+* __阶段4·设备/健康数据融合__（规划中）
+  - 通过硬件与MQTT/语音链路集成，形成语音-文本-语音闭环（`doc/hardware_integration_design.md`）。
+* __阶段5·产品化与生态__（规划中）
+  - 插件体系完善、监控与埋点、A/B调参、权限与合规。
+
+### 已完成（Done）
+* __通信与安全__：TCP长连接、认证、心跳、加密编解码（`internal/connection`、`internal/protocol`）。
+* __初始化与基础设施__：配置、Redis/PostgreSQL、资源与触发器（`initialize/`、`internal/trigger`、`internal/resource`）。
+* __上下文与Prompt框架__：上下文类型与生成器（`internal/context`、`internal/prompt`）。
+* __AI设计文档__：`doc/ai_chat_design.md`、`doc/ai_weight_system_design.md`、`doc/context_management_design.md`。
+* __桌面截图基础能力__：定时截图、压缩、回调扩展（`pkg/screenshot/`）。
+* __本地图片质量筛选模块__：评分/判废/去重，内置阈值与权重（`pkg/screenshot/quality/*`）。
+
+### 进行中（In Progress）
+* __质量筛选接入链路__：在 `pkg/screenshot/service.go` 回调处接 `quality.Analyzer`，`IsJunk` 直接丢弃。
+* __云端视觉识别__：接入阿里云视觉/多模态识别，结合本地筛选降低成本（参考 `doc/multi_screenshot_analysis_plan.md` 成本估算）。
+* __权重系统落地与埋点__：将权重参数配置化（阈值/频率/情绪与话题权重），埋点数据用于闭环调参。
+* __数据源整合__：热搜/天气/资讯等外部API接入与权重融合（见 `doc/ai_chat_design.md`）。
+
+### 下一步计划（Next）
+1. 在 `pkg/screenshot/service.go` 接入 `quality.Analyzer` 并新增埋点：Score/IsJunk/Reasons 分布。
+2. 接入阿里云视觉分析，按场景做批量/合并请求与缓存，控制成本（详见 `doc/multi_screenshot_analysis_plan.md` 第十章）。
+3. 将权重阈值与触发策略配置化（环境变量/配置文件），支持运行时热更新与灰度。
+4. 补齐主动触发策略上线闭环：触发→生成→推送→反馈→自适应（`internal/trigger` 联动 `internal/ai`）。
+5. 增加监控告警与性能压测：长连接稳定性、截图管线吞吐、视觉调用SLA（Grafana/Prometheus 规划）。
+
+### 里程碑与完成度
+* __M1 基础通信稳定上线__（100%）：长连接、认证、心跳与协议、安全编解码。
+* __M2 上下文与Prompt框架__（100%）：上下文结构、生成器与优化策略文档。
+* __M3 截图与质量筛选__（80%）：截图服务与质量评估器完成，服务侧接入与埋点进行中。
+* __M4 情境感知上线（首版）__（40%）：接入云视觉、落地主动触发若干场景。
+* __M5 权重系统实装与调参平台__（30%）：配置化与数据闭环在线调参。
+* __M6 设备/健康数据融合（语音链路）__（0% 规划）：按 `doc/hardware_integration_design.md` 打通链路。
+
+说明：上述百分比为工程实现进度的粗略估算，会随代码合并与联调推进而调整。
 
 ## 加入我们
 无论你是后端高手、AI算法爱好者、产品设计师还是热衷体验的普通用户，都欢迎加入RobotChatAny！一起探索主动智能的无限可能。

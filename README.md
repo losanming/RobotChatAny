@@ -287,5 +287,7 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 
 > 我的联系方式qq:1321291309
 ---
-![IMG_1867](https://github.com/user-attachments/assets/4685c2ea-53c8-425b-a6d6-d478b27cf7a8)
 如有建议、想法或合作意向，请提交 Issue 或 PR，或直接联系项目维护者。
+
+<img width="4832" height="5796" alt="初版总体方案" src="https://github.com/user-attachments/assets/059536d3-86f5-4f08-8fd7-ff50ca0aff38" />
+

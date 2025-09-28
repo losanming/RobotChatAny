@@ -24,6 +24,9 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 - 推动主动智能对话技术落地，服务个人、企业与社会
 - 打造开放、协作、创新的开发者社区
 
+## 产品初步方案
+<img width="4832" height="5796" alt="初版总体方案" src="https://github.com/user-attachments/assets/059536d3-86f5-4f08-8fd7-ff50ca0aff38" />
+
 ## 技术亮点
 - Golang 1.21+ / xorm ORM / PostgreSQL / Redis / OBS
 - TCP长连接保障实时通信
@@ -289,5 +292,5 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 ---
 如有建议、想法或合作意向，请提交 Issue 或 PR，或直接联系项目维护者。
 
-<img width="4832" height="5796" alt="初版总体方案" src="https://github.com/user-attachments/assets/059536d3-86f5-4f08-8fd7-ff50ca0aff38" />
+
 

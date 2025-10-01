@@ -28,11 +28,38 @@ RobotChatAny 仍在快速迭代中，欢迎每一位热爱AI、对人机交互�
 <img width="4832" height="5796" alt="初版总体方案" src="https://github.com/user-attachments/assets/059536d3-86f5-4f08-8fd7-ff50ca0aff38" />
 
 ## 技术亮点
-- Golang 1.21+ / xorm ORM / PostgreSQL / Redis / OBS
-- TCP长连接保障实时通信
-- 插件系统支持热插拔与快速扩展
-- 健康数据采集与分析
-- 高安全性（TLS、加密存储、权限控制等）
+- 多模态能力：视觉（桌面/摄像头、质量筛选、OCR摘要）、听觉（VAD/唤醒词/ASR）、TTS（多音色/多情绪）
+- 位置与环境：GPS（WGS84→GCJ02）、高德逆地理/天气/实时路况、围栏/停留/通勤学习
+- 事件总线：NSQ 实时消费，指针+元数据传输图片，OBS/S3/Redis 临时 Key 存储（TTL 10–30 分钟）
+- 图像质量筛选：清晰度/对比度/均匀度/aHash 去重与阈值权重（`pkg/screenshot/quality/*`）
+- 上下文黑板：AI 大脑统一读取“当前状态 + 最近时间线”，多模态置信度融合后决策
+- 技术栈：Golang 1.21+ / xorm ORM / PostgreSQL / Redis / OBS / TLS / 自定义协议 + TCP 长连接
+- 时间表示：全局统一使用秒级时间戳（int64, s），获取用 `time.Now().Unix()`；与外部 API 的毫秒/字符串时间在 provider 层转换为“秒”后再进入域模型与数据库
+- Awareness 缓存与重试 + GPS 条件触发：内存 TTL + 重试封装（逆地理/周边/天气），GPS 上报仅在时间/位移/TTL 触发时刷新昂贵数据，其他时刻复用上次结果并即时更新位置。
+
+## 今日更新（2025-10-01）
+- **[Eino 工具集]** 新增并增强 `einoUtils/brainTools/`：
+  - `todo_tool`：
+    - `action` 改为可选；支持 `title`/`titles`/`text` 自然语言解析与批量新增；
+    - 自动从中文句子中拆出多个待办（如“今天上午10点去逛动物园,下午3点看电影”），逐条写入；
+    - 内置简单中文时间解析（今天/明天 + 上午/下午 + X点），为每条待办推断 `due_ts`（秒）；
+    - 统一返回结构并在批量时返回 `count`；所有时间戳统一为“秒”。
+  - `events_tool`：完成 `AddEvent`/`ListEvents` 的调用通路。
+  - `task_tool`：完成 `SetCurrentTask`/`ClearCurrentTask`/`GetCurrentTask` 的调用通路。
+- **[Brain 接口与时间戳统一]** `internal/brain/service.go`
+  - 新增：`AddEvent(e Event)`、`ListEvents() []Event`。
+  - 新增：`SetCurrentTask(t Task)`、`ClearCurrentTask()`、`GetCurrentTask() *Task`。
+  - 修正：`SetHealth(h HealthState)`、`PatchHealth(...)` 全部统一使用 `time.Now().Unix()`（秒）。
+- **[Demo 覆盖]** 更新 `cmd/test/eino_todo_demo.go` 示例问句，验证一句多待办与时间抽取的落库效果。
+
+> 说明：新增目录 `einoUtils/brainTools/` 存放与 Eino 框架对接的工具集（todo/events/task/profile/health）。
+
+## 今日更新（2025-09-30）
+- **[时间戳统一]** 全项目统一“秒级时间戳”：一律使用 `time.Now().Unix()`。若外部 API 返回毫秒或字符串时间，均在 provider 层转换为“秒”。
+- **[GPSService 初始化]** 在 `internal/brain/gps_service.go` 新增 `NewGPSService(parent context.Context, brain *Brain, aware *awareness.Service, opts ...GPSOption)`，支持可选项：队列大小、汇聚超时与策略。
+- **[AMap 兼容策略]** 仅在 `pkg/location/provider/amap/` 层兼容高德“字段类型不稳定”（如 `address` 可能为 string 或 []string），通过自定义反序列化类型统一为稳定输出；对外域模型保持不变。
+- **[通勤习惯讨论]** 形成方案：记录单次通勤（起点/终点/出发/到达/用时/路过地点），按周聚合生成“通勤习惯档案”（出发时间分布、用时P50/P90、主路线）。
+
 
 ## 快速开始
 1. 克隆本仓库，安装依赖

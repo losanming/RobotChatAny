@@ -404,7 +404,8 @@ new-robot-self/
 - **GitHub Issues**: 提交问题与建议
 - **Pull Requests**: 欢迎贡献代码
 
-![IMG_1867](https://github.com/user-attachments/assets/4685c2ea-53c8-425b-a6d6-d478b27cf7a8)
+
+<img width="1602" height="1962" alt="7C5FF181-C9D6-4590-8BBC-A2E941FAD603_1_102_o" src="https://github.com/user-attachments/assets/91a94465-012c-469f-b82e-7050586b35b2" />
 
 ---
 

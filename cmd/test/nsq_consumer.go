@@ -24,8 +24,8 @@ type ImgMsg struct {
 
 func main() {
 	var (
-		lookupd   = "101.126.17.221:24161"
-		nsqd      = "101.126.17.221:24150"
+		lookupd   = "127.0.0.1:24161"
+		nsqd      = "127.0.0.1:24150"
 		topic     = "screenshot.ingest"
 		channel   = "ai"
 		workers   = 8

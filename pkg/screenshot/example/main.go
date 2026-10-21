@@ -14,10 +14,10 @@ import (
 )
 
 func main() {
-	file1, err := ioutil.ReadFile("/Users/danfwing/workspace/new-robot-self/pkg/screenshot/example/screenshot_1755162152.jpg")
-	file2, err := ioutil.ReadFile("/Users/danfwing/workspace/new-robot-self/pkg/screenshot/example/pic2.jpg")
-	file3, err := ioutil.ReadFile("/Users/danfwing/workspace/new-robot-self/pkg/screenshot/example/zpic3.jpg")
-	file4, err := ioutil.ReadFile("/Users/danfwing/workspace/new-robot-self/pkg/screenshot/example/zpic4.jpg")
+	file1, err := ioutil.ReadFile("pkg/screenshot/example/screenshot_1755162152.jpg")
+	file2, err := ioutil.ReadFile("pkg/screenshot/example/pic2.jpg")
+	file3, err := ioutil.ReadFile("pkg/screenshot/example/zpic3.jpg")
+	file4, err := ioutil.ReadFile("pkg/screenshot/example/zpic4.jpg")
 	if err != nil {
 		panic(err)
 	}

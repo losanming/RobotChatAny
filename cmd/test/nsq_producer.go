@@ -23,7 +23,7 @@ type ImgMsTO struct {
 
 func main() {
 	var (
-		nsqd     = "101.126.17.221:24150"
+		nsqd     = "127.0.0.1:24150"
 		topic    = "screenshot.ingest"
 		count    = flag.Int("count", 10, "number of messages to publish")
 		deviceID = flag.String("device", "dev-001", "device id in message")

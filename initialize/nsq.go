@@ -14,8 +14,8 @@ import (
 // InitNSQConsumer 初始化 NSQ 消费者并开始监听图片消息
 // 环境变量（可选）：
 //
-//	NSQ_NSQD        如 101.126.17.221:4150（直连 nsqd）
-//	NSQ_LOOKUPD     如 101.126.17.221:4161（通过 lookupd 发现）
+//	NSQ_NSQD        如 127.0.0.1:4150（直连 nsqd）
+//	NSQ_LOOKUPD     如 127.0.0.1:4161（通过 lookupd 发现）
 //	NSQ_TOPIC       默认 screenshot.ingest
 //	NSQ_CHANNEL     默认 ai
 //	NSQ_DLQ         默认 screenshot.dlq

@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// 创建资源获取器
-	fetcher, err := resource.NewFetcher("/Users/danfwing/workspace/new-robot-self/asset/resources.json")
+	fetcher, err := resource.NewFetcher("asset/resources.json")
 	if err != nil {
 		log.Fatalf("创建资源获取器失败: %v", err)
 	}

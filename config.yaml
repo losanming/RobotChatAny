@@ -9,7 +9,7 @@ ai:
 
 # 数据库配置
 postgres:
-  host: 101.126.17.221
+  host: 127.0.0.1
   port: 25432
   user: YOUR_DB_USER
   password: YOUR_DB_PASSWORD
@@ -21,7 +21,7 @@ postgres:
 # Redis配置
 redis:
   # 单Redis配置（向后兼容）
-  host: 101.126.17.221
+  host: 127.0.0.1
   port: 36379
   password: "YOUR_REDIS_PASSWORD"
   db: 0
@@ -31,21 +31,21 @@ redis:
   # 多Redis集群配置
   clusters:
     - name: "some_cache_1"  # 用户数据缓存
-      host: 101.126.17.221
+      host: 127.0.0.1
       port: 36379
       password: "YOUR_REDIS_PASSWORD"
       db: 0
       pool_size: 50
       min_idle_conns: 5
     - name: "some_cache_2"  # 业务数据缓存
-      host: 101.126.17.221
+      host: 127.0.0.1
       port: 36379
       password: "YOUR_REDIS_PASSWORD"
       db: 1
       pool_size: 50
       min_idle_conns: 5
     - name: "some_cache_3"  # 会话缓存
-      host: 101.126.17.221
+      host: 127.0.0.1
       port: 36379
       password: "YOUR_REDIS_PASSWORD"
       db: 2
@@ -120,9 +120,9 @@ gitee:
   scope: "user_info,projects"
 
 nsq:
-  nsqd: "101.126.17.221:24150"
+  nsqd: "127.0.0.1:24150"
   nsqlookupd:
-    - "101.126.17.221:4161"
+    - "127.0.0.1:4161"
   topic: "screenshot.ingest"
   channel: "ai"
   dlq: "screenshot.dlq"
@@ -136,7 +136,7 @@ nsq:
 rag:
   embedding:
     provider: infinity
-    baseURL: http://107.149.143.39:38081
+    baseURL: http://127.0.0.1:38081
     apiKey: ""
     model: Alibaba-NLP/gte-multilingual-base
     endpointPath: /embeddings
@@ -145,7 +145,7 @@ rag:
     queryInstruction: ""
     documentInstruction: ""
   qdrant:
-    baseURL: http://107.149.143.39:36333
+    baseURL: http://127.0.0.1:36333
     apiKey: ""
     collection: my_brain
     timeoutSeconds: 20

@@ -32,7 +32,7 @@ func pct(delta, base int) string {
 }
 
 func main() {
-	fileByte, err := ioutil.ReadFile("/Users/danfwing/workspace/new-robot-self/asset/everasm-system.sql")
+	fileByte, err := ioutil.ReadFile("asset/everasm-system.sql")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "无法读取文件: %v\n", err)
 		os.Exit(1)
@@ -61,7 +61,7 @@ func main() {
 		os.Exit(1)
 	}
 	// 解压后落地成文件
-	err = ioutil.WriteFile("/Users/danfwing/workspace/new-robot-self/asset/everasm-system_zstd.sql", fromBase64, 0644)
+	err = ioutil.WriteFile("asset/everasm-system_zstd.sql", fromBase64, 0644)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "无法写入文件: %v\n", err)
 		os.Exit(1)

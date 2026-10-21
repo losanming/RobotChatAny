@@ -33,7 +33,7 @@ func NewContextMemory() *ContextMemory {
 			Habits:      make(map[string]interface{}),
 			LastUpdated: time.Now().Unix(),
 		},
-		storagePath: "/Users/danfwing/workspace/new-robot-self/data/context_memory.json",
+		storagePath: "data/context_memory.json",
 	}
 
 	// 尝试从持久化存储加载
@@ -351,7 +351,7 @@ func (m *ContextMemory) saveToStorage() {
 	}
 
 	// 确保目录存在
-	dir := "/Users/danfwing/workspace/new-robot-self/data"
+	dir := "data"
 	if err := os.MkdirAll(dir, 0755); err != nil {
 		fmt.Printf("创建数据目录失败: %v\n", err)
 		return

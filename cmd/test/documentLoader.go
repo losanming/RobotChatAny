@@ -11,7 +11,7 @@ func main() {
 	loader, _ := file.NewFileLoader(context.Background(), &file.FileLoaderConfig{
 		UseNameAsID: true,
 	})
-	filePath := "/Users/danfwing/workspace/new-robot-self/cmd/test/需求.md"
+	filePath := "cmd/test/需求.md"
 	docs, _ := loader.Load(context.Background(), document.Source{URI: filePath})
 	fmt.Println(docs[0].Content)
 }

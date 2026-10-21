@@ -52,8 +52,8 @@ var VlConfig = ai.Config{
 	MaxTokens: 150,
 }
 
-const TriggerPath = "/Users/danfwing/workspace/new-robot-self/asset/triggers.json"
-const FetcherPath = "/Users/danfwing/workspace/new-robot-self/asset/resources.json"
+const TriggerPath = "asset/triggers.json"
+const FetcherPath = "asset/resources.json"
 const HostName = "Dangwing'ai"
 
 // RAGService RAG服务全局实例

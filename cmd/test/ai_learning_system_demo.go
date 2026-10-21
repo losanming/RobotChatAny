@@ -26,7 +26,7 @@ func main() {
 			resource.Game,
 		},
 		EnableAutoLearn:    false, // 测试时不启用自动学习
-		ResourceConfigPath: "/Users/danfwing/workspace/new-robot-self/asset/resources.json",
+		ResourceConfigPath: "asset/resources.json",
 	}
 	
 	// 初始化学习引擎

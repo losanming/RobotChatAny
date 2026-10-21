@@ -26,7 +26,7 @@ func main() {
 			resource.Tech,     // 科技资讯
 		},
 		EnableAutoLearn:    false,
-		ResourceConfigPath: "/Users/danfwing/workspace/new-robot-self/asset/resources.json",
+		ResourceConfigPath: "asset/resources.json",
 	}
 	
 	// 初始化学习引擎

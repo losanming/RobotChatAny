@@ -54,7 +54,7 @@ func DefaultLearningConfig() LearningConfig {
 		MaxItemsPerLearn:   20, // 每次最多学习20条
 		EnabledTypes:       resource.GetAllType(),
 		EnableAutoLearn:    true,
-		ResourceConfigPath: "/Users/danfwing/workspace/new-robot-self/asset/resources.json",
+		ResourceConfigPath: "asset/resources.json",
 	}
 }
 

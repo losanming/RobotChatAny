@@ -19,7 +19,7 @@ func main() {
 		MaxItemsPerLearn:   8,
 		EnabledTypes: []resource.ResourceType{resource.Social, resource.Tech},
 		EnableAutoLearn:    false,
-		ResourceConfigPath: "/Users/danfwing/workspace/new-robot-self/asset/resources.json",
+		ResourceConfigPath: "asset/resources.json",
 	}
 	
 	err := brainInstance.InitLearningEngine(learningConfig)

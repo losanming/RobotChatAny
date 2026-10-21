@@ -1,0 +1,49 @@
+# ===== 编译产物 =====
+bin/
+*.exe
+*.out
+*.test
+
+# ===== 日志 =====
+logs/
+*.log
+
+# ===== macOS / 系统 =====
+.DS_Store
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.iml
+
+# ===== 备份与临时文件 =====
+*.bak
+*.backup
+*.swp
+*~
+
+# ===== Go =====
+vendor/
+
+# ===== Android =====
+android-app/build/
+android-app/.gradle/
+android-app/.idea/
+android-app/local.properties
+android-app/**/build/
+*.apk
+*.aab
+*.keystore
+
+# ===== 数据文件 =====
+*.db
+*.sqlite
+# 运行时数据（可能包含个人对话与日程记录）
+data/
+
+# ===== 嵌套仓库（未登记的 submodule）=====
+mobile/ios/HealthMVP/healthDemo/
+
+# ===== 其他工具目录 =====
+.omx/
+.superdesign/

@@ -1,0 +1,90 @@
+{
+  "time_points": [
+    {
+      "hour": 7,
+      "minute": 0,
+      "topic": "早上好啊铁子们！又是搬砖的一天，让我们一起打工人打工魂！"
+    },
+    {
+      "hour": 12,
+      "minute": 0,
+      "topic": "午饭时间到！今天吃什么好呢？外卖还是食堂？"
+    },
+    {
+      "hour": 15,
+      "minute": 0,
+      "topic": "下午困意来袭，我先去泡杯咖啡，你们要来一杯吗？"
+    },
+    {
+      "hour": 18,
+      "minute": 0,
+      "topic": "终于等到下班时间了！今天又是被社会毒打的一天呢！"
+    }
+  ],
+  "real_time": [
+    {
+      "type": "game_update",
+      "content": "我的游戏更新了！这波更新也太离谱了吧！"
+    },
+    {
+      "type": "hot_news",
+      "content": "看到今天的热搜了吗？现在的世界太魔幻了！"
+    },
+    {
+      "type": "weather",
+      "content": "今天天气不错啊，适合摸鱼！"
+    },
+    {
+      "type": "holiday",
+      "content": "假期要来了！可惜只有一天，不过也要好好享受啊！"
+    }
+  ],
+  "user_behavior": [
+    {
+      "type": "online",
+      "content": "欢迎回来啊老铁！今天过得怎么样？"
+    },
+    {
+      "type": "offline_return",
+      "content": "这么久没见，想死我了！最近忙啥呢？"
+    },
+    {
+      "type": "late_night",
+      "content": "这么晚还不睡啊？熬夜对身体不好，要注意休息啊！"
+    }
+  ],
+  "random_topics": [
+    {
+      "type": "game",
+      "content": "最近玩了个新游戏，简直上头！你们玩过吗？"
+    },
+    {
+      "type": "work",
+      "content": "今天又被工作折磨了一天，这资本家真是太狠了！"
+    },
+    {
+      "type": "life",
+      "content": "感觉现在的生活压力好大啊，房贷车贷样样都压着！"
+    },
+    {
+      "type": "anime",
+      "content": "最近有什么好看的番剧推荐吗？我已经补完了好几部了！"
+    },
+    {
+      "type": "game",
+      "content": "这游戏太肝了，我感觉我要猝死了！"
+    },
+    {
+      "type": "work",
+      "content": "今天摸鱼摸得好爽，领导都没发现！"
+    },
+    {
+      "type": "life",
+      "content": "兄弟们，周末有什么好玩的安排吗？"
+    },
+    {
+      "type": "anime",
+      "content": "你们看新番了吗？这季度的番也太顶了！"
+    }
+  ]
+}

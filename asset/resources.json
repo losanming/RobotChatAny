@@ -1,0 +1,76 @@
+{
+  "sources": [
+    {
+      "type": "social",
+      "name": "微博热搜",
+      "url": "http://api.suxun.site/api/hotlist?id=weibo",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "tech",
+      "name": "36氪",
+      "url": "http://api.suxun.site/api/hotlist?id=36kr",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "tech",
+      "name": "少数派",
+      "url": "http://api.suxun.site/api/hotlist?id=sspai",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "social",
+      "name": "知乎热榜",
+      "url": "http://api.suxun.site/api/hotlist?id=zhihu",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "tech",
+      "name": "哔哩哔哩",
+      "url": "http://api.suxun.site/api/hotlist?id=bilibili",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "social",
+      "name": "百度热搜",
+      "url": "http://api.suxun.site/api/hotlist?id=baidu",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "social",
+      "name": "抖音热榜",
+      "url": "http://api.suxun.site/api/hotlist?id=douyin",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "tech",
+      "name": "IT之家",
+      "url": "http://api.suxun.site/api/hotlist?id=ithome",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    },
+    {
+      "type": "tech",
+      "name": "掘金",
+      "url": "http://api.suxun.site/api/hotlist?id=juejin",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      }
+    }
+  ]
+}
